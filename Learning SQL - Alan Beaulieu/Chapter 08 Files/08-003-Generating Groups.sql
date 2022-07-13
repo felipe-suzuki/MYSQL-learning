@@ -52,3 +52,21 @@ FROM
     film AS f ON fa.film_id = f.film_id
 GROUP BY fa.actor_id , f.rating WITH ROLLUP
 ORDER BY 1 , 2;
+
+-- Group Filter Conditions --
+
+-- HAVING CLAUSE --
+-- When grouping data, you also can apply filter conditions to the data after
+-- the groups have been generated. The having clause is where you should place
+-- these types of filter conditions. Consider the following example:
+
+SELECT 
+    fa.actor_id, f.rating, COUNT(*)
+FROM
+    film_actor fa
+        INNER JOIN
+    film f ON fa.film_id = f.film_id
+WHERE
+    f.rating IN ('G' , 'PG')
+GROUP BY fa.actor_id , f.rating
+HAVING COUNT(*) > 9;
