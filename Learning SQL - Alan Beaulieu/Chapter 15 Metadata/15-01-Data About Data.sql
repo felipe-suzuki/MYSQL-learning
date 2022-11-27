@@ -1,0 +1,32 @@
+#Data About Data
+-- Metadata is essentially data about data. Every time you create a database object, the
+-- database server needs to record various pieces of information. For example, if you
+-- were to create a table with multiple columns, a primary key constraint, three indexes,
+-- and a foreign key constraint, the database server would need to store all the following
+-- information:
+
+-- • Table name
+-- • Table storage information (tablespace, initial size, etc.)
+-- • Storage engine
+-- • Column names
+-- • Column data types
+-- • Default column values
+-- • not null column constraints
+-- • Primary key columns
+-- • Primary key name
+-- • Name of primary key index
+-- • Index names
+-- • Index types (B-tree, bitmap)
+-- • Indexed columns
+-- • Index column sort order (ascending or descending)
+-- • Index storage information
+-- • Foreign key name
+-- • Foreign key columns
+-- • Associated table/columns for foreign keys
+
+-- While standards exist for the exchange of metadata between different servers, every
+-- database server uses a different mechanism to publish metadata, such as:
+-- • A set of views, such as Oracle Database’s user_tables and all_constraints views
+-- • A set of system-stored procedures, such as SQL Server’s sp_tables procedure or
+-- Oracle Database’s dbms_metadata package
+-- • A special database, such as MySQL’s information_schema database
